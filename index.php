@@ -62,8 +62,12 @@ function validate()
         $errors[] = 'city';
     }
 
-    if (empty($_POST['zipcode'])){
+    if (empty($_POST['zipcode']) or !is_numeric($_POST['zipcode'])) {
         $errors[] = 'zipcode';
+    }
+
+    if (empty($_POST['moods'])) {
+        $errors[] = 'mood';
     }
 
     return $errors;
@@ -106,7 +110,7 @@ function handleForm($products)
     } else {
         // TODO: handle successful submission
             // TODO: form related tasks (step 1)
-        $selectedProducts = array_keys($_POST['products']);
+        $selectedProducts = array_keys($_POST['moods']);
         $purchasedNames = [];
         foreach($selectedProducts as $key => $selectedProduct) {
             array_push($purchasedNames, $products[$selectedProduct]['name']);
@@ -114,7 +118,7 @@ function handleForm($products)
 
         $message = 'Your email : ' . $_POST['email'] . '<br>';
         $message .= 'Your address : ' . $_POST['street'] . ' ' . $_POST['streetnumber'] . ', ' . $_POST['zipcode'] . ' ' . $_POST['city'] . '<br>';
-        $message .= 'You ordered the following moods : ' . implode(',', $purchasedNames);
+        $message .= 'You ordered the following mood(s) : ' . implode(',', $purchasedNames);
 
         return [
             'errors' => false,
