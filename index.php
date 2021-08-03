@@ -48,22 +48,27 @@ function validate()
 
     if (empty($_POST['email'])){
         $errors[] = 'email';
+        $_SESSION['email'] = $_POST['email'];
     }
 
     if (empty($_POST['street'])){
         $errors[] = 'street';
+        $_SESSION['street'] = $_POST['street'];
     }
 
     if (empty($_POST['streetnumber'])){
         $errors[] = 'streetnumber';
+        $_SESSION['streetnumber'] = $_POST['streetnumber'];
     }
 
     if (empty($_POST['city'])){
         $errors[] = 'city';
+        $_SESSION['city'] = $_POST['city'];
     }
 
     if (empty($_POST['zipcode']) or !is_numeric($_POST['zipcode'])) {
         $errors[] = 'zipcode';
+        $_SESSION['zipcode'] = $_POST['zipcode'];
     }
 
     if (empty($_POST['moods'])) {
@@ -99,7 +104,8 @@ function handleForm($products)
 
         $message = 'Your email : ' . $_POST['email'] . '<br>';
         $message .= 'Your address : ' . $_POST['street'] . ' ' . $_POST['streetnumber'] . ', ' . $_POST['zipcode'] . ' ' . $_POST['city'] . '<br>';
-        $message .= 'You ordered the following mood(s) : ' . implode(',', $purchasedNames);
+        $message .= 'You ordered the following mood(s) : ' . implode(',', $purchasedNames) . '<br>';
+        $message .= $_POST['email'] . ', your address has been saved on the browser until the browser is closed.';
 
         return [
             'errors' => false,
