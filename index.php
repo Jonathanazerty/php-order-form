@@ -74,26 +74,7 @@ function validate()
 }
 
 function handleForm($products)
-{
-    /*
-    if (isset ($_POST['email']) && isset($_POST['street']) && isset($_POST['streetnumber']) && isset($_POST['city']) && isset($_POST['zipcode'])) {
-
-        // create variables
-        $email = $_POST['email'];
-        $street = $_POST['street'];
-        $streetnumber = $_POST['streetnumber'];
-        $city = $_POST['city'];
-        $zipcode = $_POST['zipcode'];
-        
-
-        //show information
-        echo '<div class="alert alert-success">'.'Thank you! We received the following information from you: <br>'. $email .'<br>'. $street. '<br>' . $streetnumber . '<br>' . $city . '<br>' . $zipcode . '<br>' . implode(',', $purchasedNames).'</div>' ;
-    }
-    else {
-        echo '<div class="alert alert-danger">'.' Please fill in the form correctly. Thank you!'.'</div>';
-    }
-    */
-    
+{    
     // Validation (step 2)
     $invalidFields = validate();
     if (!empty($invalidFields)) {
