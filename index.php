@@ -95,7 +95,8 @@ function validate()
 
 function handleForm($products)
 {    
-    // $newCustomer = new informationAddress ()
+    $newCustomer = new informationAddress ($_POST['email'], $_POST['street'], $_POST['streetnumber'], $_POST['zipcode'], $_POST['city']);
+    $newCustomer -> getAddress();
 
     // Validation (step 2)
     $invalidFields = validate();

@@ -10,11 +10,11 @@ class informationAddress
 {
     private string $email;
     private string $street;
-    private float $streetNumber;
+    private string $streetNumber;
     private string $city;
-    private float $zipcode;
+    private string $zipcode;
 
-    public function __construct(string $email, string $street, float $streetNumber, string $city, float $zipcode)
+    public function __construct(string $email, string $street, string $streetNumber, string $city, string $zipcode)
     {
         $this->email = $email;
         $this->street = $street;
@@ -24,10 +24,11 @@ class informationAddress
 
     }
 
-    // public function getInfo()
-    // {
-         
-    // }
+    public function getAddress()
+    {
+         echo "Your email : {$this->email}. <br>";
+         echo "Your address : {$this->street} {$this->streetNumber} {$this->city} {$this->zipcode}";
+    }
 }
 
  
