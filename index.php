@@ -10,6 +10,9 @@ ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 
+require 'products.php';
+require 'address.php';
+
 // We are going to use session variables so we need to enable sessions
 session_start();
 
@@ -37,6 +40,18 @@ $products = [
     ['name' => 'Childish mood 👶', 'price' => 500],
     ['name' => 'Basic neutral mood 😐', 'price' => 10]
 ];
+
+$Goofy = new Product ('Happy goofy mood 🤪', 1000);
+$Serious = new Product ('Happy serious mood 😀', 700);
+$Diva = new Product ('Diva attitude mood 💁🏽‍♀️', 100);
+$Childish = new Product ('Childish mood 👶', 500);
+$Basic = new Product ('Basic neutral mood 😐', 10);
+
+$Goofy -> getProducts();
+$Serious -> getProducts();
+$Diva -> getProducts();
+$Childish -> getProducts();
+$Basic -> getProducts();
 
 
 $totalValue = 0;
@@ -80,6 +95,8 @@ function validate()
 
 function handleForm($products)
 {    
+    // $newCustomer = new informationAddress ()
+
     // Validation (step 2)
     $invalidFields = validate();
     if (!empty($invalidFields)) {
