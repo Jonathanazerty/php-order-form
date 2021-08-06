@@ -2,12 +2,6 @@
 
 declare(strict_types=1);
 
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
-error_reporting(E_ALL);
-
-
-
 class Product
 {
     public string $name;
@@ -19,9 +13,9 @@ class Product
         $this->price = $price;
     }
 
-    public function getProducts()
+    public function formatPrice()
     {
-        echo "The {$this->name} costs {$this->price}. <br>";
+        return '€'. number_format($this->price, 2);
     }
 
 };
